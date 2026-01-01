@@ -348,21 +348,15 @@ void GxEPD2_290_T94_V2::_InitDisplay()
   delay(10); // 10ms according to specs
   _writeCommand(0x12);  //SWRESET
   delay(10); // 10ms according to specs
-  _writeCommand(0x01); //Driver output control
-  _writeData(0x27);
+  _writeCommand(0x01);  // Set MUX as 300
+  _writeData(0x2B);
   _writeData(0x01);
   _writeData(0x00);
-  _writeCommand(0x11); //data entry mode
-  _writeData(0x03);
   _writeCommand(0x3C); //BorderWavefrom
-  _writeData(0x05);
-  _writeCommand(0x21); //  Display update control
-  _writeData(0x00);
-  _writeData(0x80);
+  _writeData(0x01); //
   _writeCommand(0x18); //Read built-in temperature sensor
   _writeData(0x80);
   _setPartialRamArea(0, 0, WIDTH, HEIGHT);
-  _using_partial_mode = false;
   _init_display_done = true;
 }
 
